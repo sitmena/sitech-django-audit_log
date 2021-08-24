@@ -13,6 +13,7 @@ class DatabaseLogging(models.Model):
     values = JSONField(verbose_name='Values')
     creator = UserForeignKey(auto_user_add=True, db_column='created_by', verbose_name="Creator")
     creator_ip = models.GenericIPAddressField(null=True,)
-    creator_agent = models.CharField(null=True, verbose_name='Creator Agent', max_length=255)
+    # for facebook and instagram browser the following line is larger than 255 characters
+    creator_agent = models.CharField(null=True, verbose_name='Creator Agent', max_length=355)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, verbose_name='Created At')
 
